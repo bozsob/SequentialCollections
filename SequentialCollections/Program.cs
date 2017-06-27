@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Collections.Specialized;
+using System.Globalization;
 
 namespace SequentialCollections
 {
@@ -11,6 +13,7 @@ namespace SequentialCollections
     {
         static void Main(string[] args)
         {
+            //Working with Queue
             Queue queue = new Queue();
             queue.Enqueue("First");
             queue.Enqueue("Second");
@@ -30,8 +33,8 @@ namespace SequentialCollections
                 {
                     object obj = queue.Dequeue();
                     Console.WriteLine("From Qeueu: {0}", obj);
-                    Console.WriteLine("Press Enter to continue");
-                    Console.ReadLine();
+                    //Console.WriteLine("Press Enter to continue");
+                    //Console.ReadLine();
                 }
                 catch(Exception e)
                 {
@@ -40,8 +43,10 @@ namespace SequentialCollections
                 }
                 
             }
-            
+            Console.WriteLine("Press Enter to continue");
+            Console.ReadLine();
 
+            //Working with Stack
             Console.WriteLine("My stack: ");
 
             Stack stack = new Stack();
@@ -67,8 +72,8 @@ namespace SequentialCollections
                 {
                     object obj = stack.Pop();
                     Console.WriteLine("From Stack: {0}", obj);
-                    Console.WriteLine("Press Enter to continue");
-                    Console.ReadLine();
+                    //Console.WriteLine("Press Enter to continue");
+                    //Console.ReadLine();
                 }
                 catch (Exception e)
                 {
@@ -77,7 +82,10 @@ namespace SequentialCollections
                 }
             }
 
+            Console.WriteLine("Press Enter to continue");
+            Console.ReadLine();
 
+            // Working with Hashtable
             Console.WriteLine("Hashtable..");
             Hashtable lookup = new Hashtable();
             lookup["0"] = "Zero";
@@ -105,7 +113,30 @@ namespace SequentialCollections
                     Console.WriteLine(lookup[digit]);
                 }
             }
+            Console.WriteLine("Press Enter to continue");
             Console.ReadLine();
+
+            //Working with ListDictionary
+            // Make the dictionary case insensitive 
+            ListDictionary list = new ListDictionary
+                (new CaseInsensitiveComparer(CultureInfo.InvariantCulture));
+
+            // Add some items
+            list["Estados Unidos"] = "United States of America";
+            list["Canadá"] = "Canada";
+            list["España"] = "Spain";
+
+            // Show the results 
+            Console.WriteLine(list["españa"]);
+            Console.WriteLine(list["CANADÁ"]);
+
+            Console.WriteLine("Press Enter to continue");
+            Console.ReadLine();
+
+            
+
+
+
         }
     }
 }
