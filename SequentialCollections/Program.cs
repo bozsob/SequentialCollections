@@ -116,6 +116,7 @@ namespace SequentialCollections
             Console.WriteLine("Press Enter to continue");
             Console.ReadLine();
 
+            Console.WriteLine("Working with ListDictionary");
             //Working with ListDictionary
             // Make the dictionary case insensitive 
             ListDictionary list = new ListDictionary
@@ -133,9 +134,29 @@ namespace SequentialCollections
             Console.WriteLine("Press Enter to continue");
             Console.ReadLine();
 
-            
+            Console.WriteLine("Working with Generic Collection - Dictionary");
+            //GenericCollection - working with Dictionary
 
+            Dictionary<int, string> countryLookup = new Dictionary<int, string>();
 
+            countryLookup[11] = "United Kingdom";
+            countryLookup[22] = "Germany";
+
+            countryLookup.Add(33, "Mexico");
+            countryLookup.Add(44, "Norway");
+            countryLookup.Add(55, "Estonia");
+
+            Console.WriteLine("The 44 Code is for: {0}", countryLookup[44]);
+
+            foreach (KeyValuePair<int, string> item in countryLookup)
+            {
+                int code = item.Key;
+                string country = item.Value;
+                Console.WriteLine("Code {0} = {1}", code, country);
+            }
+
+            Console.WriteLine("Press Enter to continue");
+            Console.ReadLine();
 
         }
     }
